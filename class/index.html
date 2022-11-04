@@ -5,22 +5,14 @@
 	<head>
 		<title>My Page Title</title>
 		<link rel="icon" type="image/x-icon" href="" />
-
-		<style>
-			th,
-			td {
-				border: 1px solid black;
-			}
-
-			table {
-				border-collapse: collapse;
-				width: 100%;
-			}
-		</style>
+		<link rel="stylesheet" href="index.css" type="text/css" />
 	</head>
+
+	<div>Improper</div>
 
 	<!-- <body> tag is used to showcase the body of the webpage (UI you see on screen) -->
 	<body>
+		<!-- using proper html tags will provide semantic meaning (aka semantic html) - this helps screen readers & assistive tech -->
 		<h1>This is a Heading 1</h1>
 		<h2>This is a Heading 2</h2>
 		<h3>This is a Heading 3</h3>
@@ -64,5 +56,65 @@
 				</tr>
 			</tbody>
 		</table>
+
+		<ul>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JS</li>
+			<li>React</li>
+		</ul>
+
+		<ol>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JS</li>
+			<li>React</li>
+		</ol>
+
+		<!-- <div> and certain other HTML tags are block-level elements - they take up full width available -->
+		<!-- They also start on next line down -->
+		<div id="sometext1">Some Text 1</div>
+		<div id="sometext2">Some Text 2</div>
+
+		<!-- <strong> & <em> tags are inline-level elements - they continue on the same line until there is no more available width -->
+		<p>
+			<strong>Some strong text</strong>
+			<em>Some emphasized text Some emphasized text Some emphasized text Some emphasized text</em>
+			<span style="color: red">Text inside of a span</span>
+		</p>
+
+		<div id="box1" class="box">Box 1</div>
+		<br />
+		<!-- class < id (unique) < style < !important -->
+		<div class="box box100" id="box2" style="width: 50px; height: 50px; border: 1px solid green; background-color: brown">Box 2</div>
+
+		<hr />
+
+		<section>
+			<form id="my-form" onsubmit="">
+				<label for="name">
+					Name:
+					<input id="name" type="text" required />
+				</label>
+
+				<label for="email">
+					Email:
+					<input id="email" type="email" required placeholder="example@domain.com" />
+				</label>
+
+				<label for="password">
+					Password:
+					<input id="password" type="password" required />
+				</label>
+
+				<label for="avatar">
+					Avatar Image:
+					<input id="avatar" type="file" required />
+				</label>
+
+				<button type="reset">Reset</button>
+				<button type="submit">Submit</button>
+			</form>
+		</section>
 	</body>
 </html>
