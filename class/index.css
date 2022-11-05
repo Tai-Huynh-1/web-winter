@@ -1,3 +1,11 @@
+/* CSS stands for Cascading StyleSheet */
+
+* {
+	/* default font size */
+	font-size: medium;
+	font-family: "Lato", sans-serif;
+}
+
 th,
 td {
 	border: 1px solid black;
@@ -27,17 +35,20 @@ ol {
 
 #box1 {
 	background-color: aquamarine;
+	margin-bottom: 50px;
 }
 
 #box2 {
 	background-color: deepskyblue !important;
 	width: 150px;
 	height: 150px;
+	margin-top: 50px;
 }
 
 /* . is used to select elements by their "class" attribute */
 .box {
-	border: 1px solid black;
+	border: 5px solid black;
+	padding: 50px 50px;
 	width: 50px;
 	height: 50px;
 }
@@ -53,4 +64,57 @@ ol {
 
 #my-form {
 	border: 1px solid black;
+	/* border-style: dotted; */
+}
+
+p.top {
+	color: red;
+}
+
+.outer-box {
+	width: 50%;
+	height: 100px;
+	background-color: deepskyblue;
+	position: relative;
+}
+
+.inner-box {
+	/* max-width: 100px; */
+	/* visibility: hidden; */
+	/* display: none; */
+	position: absolute;
+	top: -10px;
+	left: 10px;
+	z-index: -1;
+	width: 50%;
+	height: 50px;
+	background-color: rgba(224, 18, 18, 50%);
+}
+
+.inner-box2 {
+	/* max-width: 100px; */
+	/* visibility: hidden; */
+	/* display: none; */
+	width: 50%;
+	height: 50px;
+	background-color: rgba(224, 18, 18, 50%);
+}
+
+body {
+	background-image: url("index.jpg");
+	/* background-repeat:  */
+}
+
+.navbar-top {
+	width: 100%;
+	background-color: brown;
+	position: sticky;
+	top: 0px;
+}
+
+footer {
+	width: 100%;
+	background-color: brown;
+	position: fixed;
+	bottom: 0;
 }
