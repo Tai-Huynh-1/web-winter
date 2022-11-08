@@ -4,6 +4,7 @@
 	/* default font size */
 	font-size: medium;
 	font-family: "Lato", sans-serif;
+	/* text-align: center; */
 }
 
 th,
@@ -83,8 +84,8 @@ p.top {
 	/* visibility: hidden; */
 	/* display: none; */
 	position: absolute;
-	top: -10px;
-	left: 10px;
+	top: -20px;
+	/* left: 10px; */
 	z-index: -1;
 	width: 50%;
 	height: 50px;
@@ -105,16 +106,46 @@ body {
 	/* background-repeat:  */
 }
 
-.navbar-top {
+/* .navbar-top {
 	width: 100%;
 	background-color: brown;
 	position: sticky;
 	top: 0px;
-}
+} */
 
-footer {
+/* footer {
 	width: 100%;
 	background-color: brown;
 	position: fixed;
 	bottom: 0;
+} */
+
+/* 5 positions in CSS
+	1. static (default)
+	2. relative
+	3. fixed
+	4. sticky
+	5. absolute
+*/
+
+.static {
+	/* position: static; */
+	left: 100px;
+}
+
+.relative {
+	position: relative;
+	left: 100px;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.container {
+	display: flex;
+	/* flex-direction: column; */
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
 }
