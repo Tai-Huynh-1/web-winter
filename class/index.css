@@ -2,7 +2,7 @@
 
 * {
 	/* default font size */
-	font-size: medium;
+	font-size: 16px;
 	font-family: "Lato", sans-serif;
 	/* text-align: center; */
 }
@@ -80,23 +80,20 @@ p.top {
 }
 
 .inner-box {
-	/* max-width: 100px; */
-	/* visibility: hidden; */
-	/* display: none; */
 	position: absolute;
 	top: -20px;
 	/* left: 10px; */
 	z-index: -1;
-	width: 50%;
+	/* width: 50%; */
+	/* width: 50px; */
+	width: 15vw;
 	height: 50px;
 	background-color: rgba(224, 18, 18, 50%);
 }
 
 .inner-box2 {
-	/* max-width: 100px; */
-	/* visibility: hidden; */
-	/* display: none; */
-	width: 50%;
+	/* width: 50%; */
+	/* width: 50px; */
 	height: 50px;
 	background-color: rgba(224, 18, 18, 50%);
 }
@@ -148,4 +145,76 @@ body {
 	justify-content: space-evenly;
 	align-items: center;
 	flex-wrap: wrap;
+}
+
+/* Descendant Selectors */
+/* all p tags enclosed inside of a div NO MATTER HOW DEEPLY NESTED */
+/* div p {
+	background-color: rgb(38, 182, 43);
+} */
+
+/* Child Selector (the immediate or direct child p tag) */
+/* div > p {
+	background-color: rgb(38, 182, 43);
+} */
+
+/* Adjacent Sibling Selector */
+div + p {
+	background-color: rgb(165, 42, 153);
+}
+
+/* Pseudo-classes */
+
+a:link {
+	color: red;
+}
+
+a:visited {
+	color: blueviolet;
+}
+
+/* a:hover {
+	background-color: aqua;
+} */
+
+a:active {
+	color: blue;
+}
+
+.second-link:hover {
+	background-color: brown;
+}
+
+/* Below is also pseudo class combined with combinator selectors */
+
+/* n+3 is all child after 3 (including the 3rd child) */
+/* ul > li:nth-child(n + 3) {
+	background-color: blue;
+	color: white;
+} */
+
+/* 3n is every multiple of 3 children */
+ul > li:nth-child(3n) {
+	background-color: blue;
+	color: white;
+}
+
+ul > li:nth-child(2) {
+	background-color: rgb(0, 255, 208);
+	color: white;
+}
+
+/* ul > li:nth-child(even) {
+	background-color: blueviolet;
+	color: white;
+} */
+
+/* Relative size em & rem */
+p {
+	/* font-size: 32px; */
+}
+
+p > span {
+	/* font-size: 2em; */
+	font-size: 2rem;
 }

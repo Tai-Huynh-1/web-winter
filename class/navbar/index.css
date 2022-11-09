@@ -1,0 +1,28 @@
+body {
+	margin: 0;
+	font-size: medium;
+}
+
+.nav-main {
+	border-bottom: 1px solid black;
+	height: 50px;
+	background-color: rgb(199, 203, 207);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 10px;
+}
+
+.mid-nav {
+	display: flex;
+	width: 25%;
+	justify-content: space-between;
+}
+
+button {
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: none;
+	background-color: rgb(50, 142, 129);
+	color: white;
+}

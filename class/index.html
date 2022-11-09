@@ -35,7 +35,7 @@
 				<em>This is a paragraph.</em>
 			</p>
 
-			<a href="https://www.google.com" target="_blank" style="color: red; background-color: blueviolet">Google</a>
+			<a href="https://www.google.com" target="_self">Google</a>
 
 			<!-- <img src="" alt="logo" width="" height="" /> -->
 
@@ -152,6 +152,61 @@
 				<div class="box">My div</div>
 				<div class="box">My div</div>
 			</div>
+
+			<!-- Descendant Selectors -->
+			<!-- <div>
+				Descendant Selector
+				<p>Paragraph 1</p>
+				<p>Paragraph 2</p>
+				<section><p>Paragraph 3 enclosed in section</p></section>
+			</div> -->
+
+			<!-- Child Selector -->
+			<div>
+				Child Selector
+				<p>Paragraph 1</p>
+				<p>Paragraph 2</p>
+				<section>
+					<p>Paragraph 3 enclosed in section</p>
+				</section>
+			</div>
+
+			<div>
+				Adjacent Sibling Selector
+				<p>Paragraph 1</p>
+				<p>Paragraph 2</p>
+			</div>
+
+			<p>Paragraph 3</p>
+			<p>Paragraph 4</p>
+
+			<div>
+				<p>Paragraph 5</p>
+				<p>Paragraph 6</p>
+			</div>
+
+			<p>Paragraph 7</p>
+			<p>Paragraph 8</p>
+
+			<!-- Pseudo-classes -->
+			<a href="https://www.google.com" target="_blank">Google Pseudo Selector Link</a>
+
+			<a href="https://www.google.com" target="_blank" class="second-link">My second link</a>
+
+			<!-- N-th child pseudo-class -->
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+				<li>Item 4</li>
+				<li>Item 5</li>
+				<li>Item 6</li>
+			</ul>
+
+			<!-- Relative size em & rem -->
+			<p>Paragraph 1</p>
+			<p>Paragraph 2 <span>2em example</span></p>
+			<p>Paragraph 3</p>
 		</main>
 	</body>
 </html>
