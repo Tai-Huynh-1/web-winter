@@ -99,8 +99,47 @@ p.top {
 }
 
 body {
-	background-image: url("index.jpg");
-	/* background-repeat:  */
+	background-color: white;
+}
+
+/* media query */
+/* min-width means at least 600px or greater */
+/* min-width is for mobile-first approach */
+/* @media only screen and (min-width: 600px) {
+	body {
+		background-color: rebeccapurple;
+	}
+
+	h1 {
+		color: brown;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	body {
+		background-color: rgb(50, 146, 58);
+	}
+} */
+
+/* Applies when screen is 600px or less */
+/* max-width is for desktop-first approach */
+@media only screen and (max-width: 600px) {
+	body {
+		background-color: rebeccapurple;
+	}
+}
+
+.transition-div {
+	background-color: aquamarine;
+	width: 100px;
+	height: 100px;
+	transition: width 3s, height 10s;
+}
+
+.transition-div:hover {
+	width: 300px;
+	height: 300px;
+	transform: rotate(15deg);
 }
 
 /* .navbar-top {
