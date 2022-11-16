@@ -52,7 +52,7 @@ const date_created = null; // null
 // console.log("end", hoistedVar);
 
 // function using 'function' keyword gets hoisting & WORK (unlike var, where you get 'undefined')
-// generateLine(2, 5);
+generateLine(2, 5);
 function generateLine(x, b) {
 	const a = 5;
 	// main logic of function
@@ -63,18 +63,73 @@ function generateLine(x, b) {
 // const myReturnedValue = generateLine(2, 5);
 
 // arrow functions DOES NOT get hoisted if stored in let or const (unless with var, but it is still 'undefined')
-var generateNum = (num) => 10 * num;
+// console.log(generateNum2);
+// var generateNum = (num) => 10 * num;
 
-const arr = [1, 2, 3];
+// var generateNum2 = function (num) {
+// 	return 20 * num;
+// };
 
-arr.forEach((num) => {});
+// const arr = [1, 2, 3];
 
-console.log(generateNum(10));
+// arr.forEach((num) => {});
+
+// console.log(generateNum2(10));
 // console.log(typeof generateNum);
 // console.log(typeof generateLine);
 // call stack / stack memory
 // primitives get stored in stack memory
 
-// copy by reference vs copy by value || pass by reference vs pass by value
-const gen2 = generateNum;
-console.log(generateNum === gen2);
+// JS: copy by reference vs copy by value || pass by reference vs pass by value
+
+// copy by value & compares by value (for primitive values ONLY)
+let a = 5;
+// console.log("a", a); // 5
+// let b = a; // real duplicate copy (stored in a different memory address / location) (copy by value)
+let c = 5;
+// console.log("b", b); // 5
+// console.log("a === b", a === b); // true (comparison by value)
+// a = 10;
+// console.log("2nd a", a); // 10
+// console.log("2nd b", b); // 5
+// console.log("a === b", a === b); // false
+// console.log("b === c", b === c);
+
+// objects, arrays, functions (these get stored in memory heap) - these get copy by reference & compared by reference (the data structure memory location)
+// let arrA = [a]; // arrA memory location arrA = XXX123
+// let arrB = arrA; // arrB = XXX123
+// let arrC = [a]; // arrC memory location arrC = 789ABC
+// console.log("arrA", arrA); // [5]
+// console.log("arrB", arrB); // [5]
+// console.log("arrC", arrC); // [5]
+// console.log("arrA === arrB", arrA === arrB); // false sukh/sai - true har/tai (we copied by reference so comparing by reference returns true)
+// console.log("arrA === arrC", arrA === arrC); // true sukh/har/sai - false tai (here we created a new array with diff. address for arrC)
+// console.log("arrA[0] === arrC[0]", arrA[0] === arrC[0]); // true har/sukh/sai
+
+// disk (library) (persistent storage - single source truth) - RAM (bookshelf) (cache storage - non-permanent)
+
+// array are sensitive to their order (index)
+const arrZ = [1, 2, 3, 4, 5, 10, 100];
+// arrZ[0] = 1000;
+// arrZ.push(1000);
+// for loop
+// for (let i = 0; i < arrZ.length; i++) {
+// 	console.log(arrZ[i]);
+// }
+
+// const arrG = []
+// arrZ.forEach((element, index) => {
+// 	console.log(`arrZ at index ${index} is ${element}`);
+// 	arrG.push(element)
+// });
+
+function mapOverArray(array) {
+	const result = array.map((element) => {
+		return element * 100;
+	});
+
+	return result;
+}
+
+const r = mapOverArray(arrZ);
+console.log(r);
