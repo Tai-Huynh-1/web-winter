@@ -80,12 +80,12 @@ function generateLine(x, b) {
 // call stack / stack memory
 // primitives get stored in stack memory
 
-// JS: copy by reference vs copy by value || pass by reference vs pass by value
+// JS: copy & compare by reference vs copy & compare by value || pass by reference vs pass by value
 
 // copy by value & compares by value (for primitive values ONLY)
 let a = 5;
 // console.log("a", a); // 5
-// let b = a; // real duplicate copy (stored in a different memory address / location) (copy by value)
+let b = a; // real duplicate copy (stored in a different memory address / location) (copy by value)
 let c = 5;
 // console.log("b", b); // 5
 // console.log("a === b", a === b); // true (comparison by value)
@@ -96,9 +96,9 @@ let c = 5;
 // console.log("b === c", b === c);
 
 // objects, arrays, functions (these get stored in memory heap) - these get copy by reference & compared by reference (the data structure memory location)
-// let arrA = [a]; // arrA memory location arrA = XXX123
-// let arrB = arrA; // arrB = XXX123
-// let arrC = [a]; // arrC memory location arrC = 789ABC
+let arrA = [a]; // arrA memory location arrA = XXX123
+let arrB = arrA; // arrB = XXX123
+let arrC = [a]; // arrC memory location arrC = 789ABC
 // console.log("arrA", arrA); // [5]
 // console.log("arrB", arrB); // [5]
 // console.log("arrC", arrC); // [5]
@@ -109,7 +109,7 @@ let c = 5;
 // disk (library) (persistent storage - single source truth) - RAM (bookshelf) (cache storage - non-permanent)
 
 // array are sensitive to their order (index)
-const arrZ = [1, 2, 3, 4, 5, 10, 100];
+const arrZ = [1, 2, 2, 2, 2, 3, 4, 5, 5, 10, 100, 100];
 // arrZ[0] = 1000;
 // arrZ.push(1000);
 // for loop
@@ -123,13 +123,65 @@ const arrZ = [1, 2, 3, 4, 5, 10, 100];
 // 	arrG.push(element)
 // });
 
-function mapOverArray(array) {
-	const result = array.map((element) => {
-		return element * 100;
-	});
+// function mapOverArray(array) {
+// 	const result = array.map((element) => {
+// 		return element * 100;
+// 	});
 
-	return result;
+// 	return result;
+// }
+
+// const r = mapOverArray(arrZ);
+// console.log(r);
+
+// objects are collections of key / value pairs
+const user = {
+	name: "Jake",
+	email: "jake@sf.com",
+	age: 25,
+};
+// dot notation & bracket notation to access / read properties inside objects
+// const nameVar = "name";
+// console.log(user[nameVar]);
+// dot notation & bracket notation to write to objects
+// console.log(user);
+// user.id = 1;
+// Object.freeze(user);
+// user["id"] = 100;
+// console.log(user);
+// update with dot & bracket notation as well
+// user.idx = 50;
+// console.log(user);
+// delete
+// delete user.id;
+// FOR ... IN loop to iterate over keys / properties of an OBJECTS
+// for (const key in user) {
+// 	console.log(`key: ${key} -- value: ${user[key]}`);
+// }
+
+// FOR ... OF loop for arrays (again)
+// for (const element of arrZ) {
+// 	console.log(element);
+// }
+
+// SETS are like arrays, but elements inside are unique
+// const arrZ = [1, 2, 2, 2, 2, 3, 4, 5, 5, 10, 100, 100] => [1, 2, 3, 4, 5, 10, 100]
+// write a function called filterForUniques(inputArray) that will take an input array and return a new array with only unique values of the original array
+// function filterForUniques(inputArray) {
+// 	const ans = new Set();
+// 	for (const element of inputArray) {
+// 		ans.add(element);
+// 	}
+// 	return ans;
+// }
+// console.log(filterForUniques(arrZ));
+const nestArr = [
+	[4, 5, 6, 7],
+	[7, 9, 8, 7],
+];
+for (let i = 0; i < nestArr.length; i++) {
+	// nestArr[0] = [4, 5, 6, 7]
+	for (let j = 0; j < nestArr[i].length; j++) {
+		console.log(nestArr[i][j]);
+	}
 }
-
-const r = mapOverArray(arrZ);
-console.log(r);
