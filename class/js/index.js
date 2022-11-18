@@ -52,7 +52,7 @@ const date_created = null; // null
 // console.log("end", hoistedVar);
 
 // function using 'function' keyword gets hoisting & WORK (unlike var, where you get 'undefined')
-generateLine(2, 5);
+// generateLine(2, 5);
 function generateLine(x, b) {
 	const a = 5;
 	// main logic of function
@@ -175,13 +175,98 @@ const user = {
 // 	return ans;
 // }
 // console.log(filterForUniques(arrZ));
-const nestArr = [
-	[4, 5, 6, 7],
-	[7, 9, 8, 7],
-];
-for (let i = 0; i < nestArr.length; i++) {
-	// nestArr[0] = [4, 5, 6, 7]
-	for (let j = 0; j < nestArr[i].length; j++) {
-		console.log(nestArr[i][j]);
+// const nestArr = [
+// 	[4, 5, 6, 7],
+// 	[7, 9, 8, 7],
+// ];
+
+// for (let i = 0; i < nestArr.length; i++) {
+// 	// nestArr[0] = [4, 5, 6, 7] // O(n^2)
+// 	for (let j = 0; j < nestArr[i].length; j++) {
+// 		console.log(nestArr[i][j]);
+// 	}
+// }
+
+// copying objects
+// const arrH = [];
+
+// const objA = {
+// 	name: "Anna",
+// 	email: "anna@sf.com",
+// 	arrH: [
+// 		50,
+// 		{
+// 			randomObj: {},
+// 			randomArr: [],
+// 		},
+// 		[[], [[]]],
+// 	],
+// };
+
+// const objB = {
+// 	name: "Anna",
+// 	email: "anna@sf.com",
+// };
+// spread operator performs a shallow copy
+// const objC = { ...objA };
+// objA.name = "Jack";
+// objC.arrH[0] = 100;
+// console.log("objA", objA);
+// console.log("objC", objC);
+
+// const arr1 = [1, 2, 6, 3, [], {}];
+// const arr2 = [...arr1];
+
+// const objD = JSON.parse(JSON.stringify(objA)); // real deep copy
+// // objE = { ...objA, arrH: [...objA.arrH] }; // manual deep copy
+// // objD.arrH[0] = 1000;
+// console.log("objA", objA);
+// console.log("objD", objD);
+// console.log(objA.arrH === objD.arrH);
+
+// Given an array of numbers, [56, 84, 56, 800, 47, 6, 1, 0, 555, 647], write a function that returns the largest value from the input array.
+function findLargest(inputArray) {
+	let largest = inputArray[0];
+	let i = 1;
+	while (i < inputArray.length) {
+		console.log(inputArray[i]);
+		if (inputArray[i] === 1) {
+			largest = inputArray[i];
+			return;
+		}
+		i++;
 	}
+	// for (let i = 1; i < inputArray.length; i++) {
+	// 	if (inputArray[i] > largest) {
+	// 		largest = inputArray[i];
+	// 	}
+	// }
+	return largest;
 }
+// const input = [56, 84, 56, 800, 47, 6, 1, 0, 555, 647];
+// console.log(findLargest(input));
+// let n = input[0];
+// input.forEach((element, idx) => {
+// 	console.log(element);
+// 	if (element === 1) {
+// 		n = idx;
+// 		return;
+// 	}
+// });
+
+// function mockForLoop(array, callback) {
+// 	for (let i = 0; i < array.length; i++) {
+// 		callback(array[i], i);
+// 	}
+// }
+
+// write a function that takes in an array of numbers and compute the summation of all numbers in the array and return it.
+// const input = [56, 84, 56, 800, 47, 6, 1, 0, 555, 647]
+const input = [56, 84, 56, 800, 47, 6, 1, 0, 555, 647];
+
+function addNum(inputArray) {
+	return inputArray.reduce((accum, currElement) => (accum += currElement), 0);
+}
+
+console.log(addNum(input));
+// reduce to copy array
