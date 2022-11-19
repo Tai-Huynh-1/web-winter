@@ -264,9 +264,85 @@ function findLargest(inputArray) {
 // const input = [56, 84, 56, 800, 47, 6, 1, 0, 555, 647]
 const input = [56, 84, 56, 800, 47, 6, 1, 0, 555, 647];
 
-function addNum(inputArray) {
-	return inputArray.reduce((accum, currElement) => (accum += currElement), 0);
+// function addNum(inputArray) {
+// 	return inputArray.reduce((accum, currElement) => (accum += currElement), 0);
+// }
+
+// console.log(addNum(input));
+// // reduce to copy array
+
+// Write a function that takes in a date (1-30). Use a switch statement to determine if the person qualifies for a discount for that particular day.
+
+// If the date is 1, the switch statement should return a string that says “Too early”
+// If the date is 15, the switch statement should return a string that says “Here is your discount”
+// If the date is 30, it should return “Too late”
+// If any other date is entered, it should return “Not a valid date”
+
+function checkDiscount(date) {
+	if (date === 1) {
+		return "Too early";
+	} else if (date === 15) {
+		return "Here is your discount";
+	} else if (date === 30) {
+		return "Too late";
+	} else {
+		return "Not a valid date";
+	}
 }
 
-console.log(addNum(input));
-// reduce to copy array
+function switchCheckDiscount(date) {
+	switch (date) {
+		case 1:
+			return "Too early";
+		case 15:
+			return "Here is your discount";
+		case 30:
+			return "Too late";
+		default:
+			return "Not a valid date";
+	}
+}
+
+// ternary operator
+function ternary(date) {
+	const value = heavyComputation();
+
+	return value;
+}
+
+// Recursions
+// fib seq: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55...
+// F(n) = F(n-1) + F(n-2)
+
+function generateFib(n) {
+	// iterative
+	const fibs = [0, 1];
+	for (let i = 2; i <= n; i++) {
+		fibs[i] = fibs[i - 1] + fibs[i - 2];
+	}
+	return fibs[n];
+
+	// recursive
+	// if (n === 0) return 0;
+	// if (n === 1) return 1;
+	// const fib = generateFib(n - 1) + generateFib(n - 2);
+	// return fib;
+}
+
+// higher-order function: if the function takes in a function and/or returns a function
+// closure: is formed at the creation time of a function & the created function will ALWAYS have access to the variable within its lexical scope at the time of the function's creation
+
+function add() {
+	const z = 2;
+	const addB = function (b) {
+		return z + b;
+	};
+	return addB;
+}
+
+const addB = add();
+
+// console.log(addB(10));
+
+const myStr = "my random string";
+console.log(myStr[myStr.length - 1]);
