@@ -1,3 +1,5 @@
+// import name1 from "./variables";
+
 // declare functions using function
 function myFunc() {
 	// logic / computation
@@ -234,6 +236,79 @@ const obj1 = {
 	lastName: "Sparrow",
 };
 const obj2 = { ...obj1 };
-console.log(obj2);
+// console.log(obj2);
 
-// array & object destructuring
+// array & object destructuring (es6+)
+const user = {
+	firstName: "Jack",
+	lastName: "Sparrow",
+	address: {
+		mailingAddress: "123 Wall St.",
+		shippingAddress: "321 Main St.",
+	},
+};
+
+// console.log(user.address.mailingAddress);
+// console.log(user.address.shippingAddress);
+
+// using object destructuring / deep destructuring & aliasing
+const firstName = "Anna";
+const {
+	address: { mailingAddress: mailingAlias, shippingAddress }, // destructure a second time
+	lastName, // destructuring the first time
+	firstName: userFirstName, // destructuring & renaming firstName to userFirstName so it does not conflict with other variables with same name
+} = user;
+
+// console.log(mailingAlias);
+
+// array destructuring
+const items = ["envelopes", "utensils", "milk", { mailingAddress: "123 Wall St.", shippingAddress: "321 Main St." }];
+const [, , milk, addresses] = items;
+// console.log(envelopes);
+// console.log(utensils);
+// console.log(milk);
+// console.log(addresses);
+
+// modules / export / import
+// console.log(name1);
+
+// looping over objects (other methods)
+for (const key in user) {
+	console.log(key);
+}
+
+console.log("=======================");
+
+const userKeys = Object.keys(user);
+const userValues = Object.values(user);
+const userEntries = Object.entries(user);
+// console.log(userKeys);
+// console.log(userValues);
+// console.log(userEntries);
+// userKeys.forEach((key) => console.log(user[key]));
+
+// pure function (functional programming)
+// a pure function should not have any side effects & outputs from the function should depend on the inputs given to it
+
+function cloneArray(array) {
+	const result = [...array];
+	return result;
+}
+
+function customPop(array) {
+	const result = [...array];
+	result.pop();
+	return result;
+}
+
+console.log("items before", items);
+console.log(customPop(items));
+console.log("items after", items);
+
+// chaining methods
+const str = "     congratulations   ".trim();
+console.log(str);
+
+// const strArray = str.split("").reverse();
+
+// console.log(strArray.join(""));
