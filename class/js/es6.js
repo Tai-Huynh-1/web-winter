@@ -1,4 +1,8 @@
-// import name1 from "./variables";
+import name1, { name2 } from "./variables.js";
+
+// modules / export / import
+console.log("name1", name1);
+console.log("name2", name2);
 
 // declare functions using function
 function myFunc() {
@@ -268,9 +272,6 @@ const [, , milk, addresses] = items;
 // console.log(utensils);
 // console.log(milk);
 // console.log(addresses);
-
-// modules / export / import
-// console.log(name1);
 
 // looping over objects (other methods)
 for (const key in user) {

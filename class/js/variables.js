@@ -1,5 +1,5 @@
 const name1 = "Anne";
 
-const name2 = "Dave";
+export const name2 = "Dave";
 
-// export default name1;
+export default name1;
