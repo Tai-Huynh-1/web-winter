@@ -7,6 +7,7 @@ import Input from "./components/Input";
 import Layout from "./components/Layout";
 import Left from "./components/Left";
 import MovieList from "./components/MovieList";
+import MultiFieldForm from "./components/MultiFieldForm";
 import NameTag from "./components/NameTag";
 import Right from "./components/Right";
 import SplitPane from "./components/SplitPane";
@@ -28,7 +29,9 @@ function App() {
 				<SplitPane left={<Left />} right={<Right />} />
 				<Clock />
 
-				<Form />
+				<MultiFieldForm />
+
+				{/* <Form />
 
 				<br />
 
@@ -47,7 +50,7 @@ function App() {
 
 				<br />
 
-				<MovieList />
+				<MovieList /> */}
 			</Layout>
 		</div>
 	);
