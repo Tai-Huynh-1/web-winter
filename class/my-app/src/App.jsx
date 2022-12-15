@@ -1,5 +1,6 @@
 import "./App.css";
 import Clock from "./components/Clock";
+import ControlledFunc from "./components/ControlledFunc";
 import Counter from "./components/Counter";
 import Form from "./components/Form";
 import Greeting from "./components/Greeting";
@@ -9,6 +10,7 @@ import Left from "./components/Left";
 import MovieList from "./components/MovieList";
 import MultiFieldForm from "./components/MultiFieldForm";
 import NameTag from "./components/NameTag";
+import Parent from "./components/Parent";
 import Right from "./components/Right";
 import SplitPane from "./components/SplitPane";
 import Toggle from "./components/Toggle";
@@ -29,7 +31,12 @@ function App() {
 				<SplitPane left={<Left />} right={<Right />} />
 				<Clock />
 
-				<MultiFieldForm />
+				<br />
+				<ControlledFunc />
+
+				{/* <Parent /> */}
+
+				{/* <MultiFieldForm /> */}
 
 				{/* <Form />
 
