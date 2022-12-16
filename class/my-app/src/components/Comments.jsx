@@ -50,3 +50,5 @@ const Comments = () => {
 };
 
 export default Comments;
+
+// setState((prevState) => ({ ...prevState, [id]: "some valye" }));

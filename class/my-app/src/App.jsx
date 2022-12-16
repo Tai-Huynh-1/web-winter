@@ -16,6 +16,7 @@ import Parent from "./components/Parent";
 import Right from "./components/Right";
 import SplitPane from "./components/SplitPane";
 import Toggle from "./components/Toggle";
+import Users from "./components/Users";
 
 function App() {
 	const element4 = <NameTag name="Bob" age={15} />;
@@ -36,7 +37,7 @@ function App() {
 				<ClockB />
 
 				<br />
-				<Comments />
+				<Users />
 
 				<br />
 				<ControlledFunc />
