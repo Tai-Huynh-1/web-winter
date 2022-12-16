@@ -54,8 +54,8 @@ class Clock extends Component {
 				<h1>Hello, world!</h1>
 				<FormattedDate date={this.state.date} />
 				<br />
-				<h2>{this.state.counter}</h2>
-				<button onClick={this.increment}>Increment Counter</button>
+				{/* <h2>{this.state.counter}</h2>
+				<button onClick={this.increment}>Increment Counter</button> */}
 			</div>
 		);
 	}

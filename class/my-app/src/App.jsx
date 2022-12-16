@@ -1,5 +1,7 @@
 import "./App.css";
 import Clock from "./components/Clock";
+import ClockB from "./components/ClockB";
+import Comments from "./components/Comments";
 import ControlledFunc from "./components/ControlledFunc";
 import Counter from "./components/Counter";
 import Form from "./components/Form";
@@ -30,6 +32,11 @@ function App() {
 			<Layout>
 				<SplitPane left={<Left />} right={<Right />} />
 				<Clock />
+
+				<ClockB />
+
+				<br />
+				<Comments />
 
 				<br />
 				<ControlledFunc />
