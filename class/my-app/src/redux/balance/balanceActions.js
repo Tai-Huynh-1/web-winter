@@ -1,4 +1,4 @@
-import { DEPOSIT, WITHDRAW } from "./balanceTypes";
+import { DEPOSIT, RESET, WITHDRAW } from "./balanceTypes";
 /**
  * These are action creator functions
  */
@@ -22,5 +22,12 @@ export const withdraw = () => {
 	return {
 		type: WITHDRAW,
 		payload: 10,
+	};
+};
+
+export const reset = () => {
+	return {
+		type: RESET,
+		payload: 0,
 	};
 };

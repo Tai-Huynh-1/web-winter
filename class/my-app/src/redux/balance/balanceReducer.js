@@ -1,4 +1,4 @@
-import { DEPOSIT, WITHDRAW } from "./balanceTypes";
+import { DEPOSIT, RESET, WITHDRAW } from "./balanceTypes";
 
 const initialState = 0;
 
@@ -9,12 +9,16 @@ const initialState = 0;
  * @returns The new state.
  */
 const balanceReducer = (state = initialState, action) => {
+	console.log(action.type);
 	switch (action.type) {
 		case DEPOSIT:
 			return state + parseInt(action.payload);
 
 		case WITHDRAW:
 			return state - parseInt(action.payload); // make sure that the balance is valid for withdraw
+
+		case RESET:
+			return parseInt(action.payload);
 
 		default:
 			return state;

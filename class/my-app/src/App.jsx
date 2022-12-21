@@ -13,7 +13,9 @@ import MovieList from "./components/MovieList";
 import MultiFieldForm from "./components/MultiFieldForm";
 import NameTag from "./components/NameTag";
 import Parent from "./components/Parent";
+import PizzaStore from "./components/PizzaStore";
 import Right from "./components/Right";
+import SimpleBank from "./components/SimpleBank";
 import SplitPane from "./components/SplitPane";
 import Toggle from "./components/Toggle";
 import Users from "./components/Users";
@@ -38,7 +40,7 @@ function App() {
 				<ClockB />
 
 				<br />
-				<UsersB />
+				<PizzaStore />
 
 				<br />
 				<ControlledFunc />
