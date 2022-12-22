@@ -9,7 +9,7 @@ const initialState = 0;
  * @returns The new state.
  */
 const balanceReducer = (state = initialState, action) => {
-	console.log(action.type);
+	console.log("balance reducer running");
 	switch (action.type) {
 		case DEPOSIT:
 			return state + parseInt(action.payload);

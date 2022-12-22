@@ -25,8 +25,6 @@ const ClockB = () => {
 		};
 	}, []);
 
-	console.log("rerender");
-
 	return (
 		<div>
 			<h1>Hello, World! This is Clock B</h1>

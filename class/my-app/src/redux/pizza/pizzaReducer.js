@@ -8,6 +8,7 @@ const initalState = {
 };
 
 const pizzaReducer = (state = initalState, action) => {
+	console.log("pizza reducer running");
 	switch (action.type) {
 		case OPENCLOSE:
 			return { ...state, isOpen: !state.isOpen };
@@ -16,13 +17,18 @@ const pizzaReducer = (state = initalState, action) => {
 			return { ...state, pepperoni: parseInt(action.payload) };
 
 		case SET_COMBO:
-			return;
+			return { ...state, combo: parseInt(action.payload) };
 
 		case SET_CHEESE:
-			return;
+			return { ...state, cheese: parseInt(action.payload) };
 
 		case RESET_ALL:
-			return;
+			return {
+				isOpen: false,
+				pepperoni: 0,
+				combo: 0,
+				cheese: 0,
+			};
 
 		default:
 			return state;
