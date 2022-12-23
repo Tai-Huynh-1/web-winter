@@ -9,6 +9,7 @@ import Greeting from "./components/Greeting";
 import Input from "./components/Input";
 import Layout from "./components/Layout";
 import Left from "./components/Left";
+import Memo from "./components/Memo";
 import MovieList from "./components/MovieList";
 import MultiFieldForm from "./components/MultiFieldForm";
 import NameTag from "./components/NameTag";
@@ -41,7 +42,7 @@ function App() {
 				<ClockB />
 
 				<br />
-				<UsersC />
+				<Memo />
 
 				<br />
 				<ControlledFunc />
