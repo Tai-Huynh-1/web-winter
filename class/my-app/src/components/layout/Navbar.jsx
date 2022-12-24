@@ -1,5 +1,5 @@
 import React from "react";
-import NameTag from "./NameTag";
+import NameTag from "../NameTag";
 
 const Navbar = () => {
 	const element4 = <NameTag name="Anne" age={25} />;

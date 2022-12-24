@@ -1,102 +1,46 @@
 import "./App.css";
+import { Routes, Route, Outlet } from "react-router-dom";
 import Clock from "./components/Clock";
 import ClockB from "./components/ClockB";
-import Comments from "./components/Comments";
-import ControlledFunc from "./components/ControlledFunc";
-import Counter from "./components/Counter";
-import Form from "./components/Form";
-import Greeting from "./components/Greeting";
-import Input from "./components/Input";
-import Layout from "./components/Layout";
-import Left from "./components/Left";
 import Memo from "./components/Memo";
-import MovieList from "./components/MovieList";
-import MultiFieldForm from "./components/MultiFieldForm";
-import NameTag from "./components/NameTag";
-import Parent from "./components/Parent";
-import PizzaStore from "./components/PizzaStore";
-import Right from "./components/Right";
-import SimpleBank from "./components/SimpleBank";
-import SplitPane from "./components/SplitPane";
-import Toggle from "./components/Toggle";
-import Users from "./components/Users";
-import UsersB from "./components/UsersB";
-import UsersC from "./components/UsersC";
+import Home from "./pages";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/private/Dashboard";
+import Admin from "./pages/private/Admin";
+import SuperAdmin from "./pages/private/SuperAdmin";
+import NotFound from "./pages/NotFound";
+import PublicRoutes from "./components/layout/PublicRoutes";
+import PrivateRoutes from "./components/layout/PrivateRoutes";
 
 function App() {
-	const element4 = <NameTag name="Bob" age={15} />;
-
-	// console.log(
-	// 	<div>
-	// 		<h1>H1</h1>
-	// 		<h2>H2</h2>
-	// 	</div>
-	// );
-
 	return (
-		<div className="App">
-			<Layout>
-				<SplitPane left={<Left />} right={<Right />} />
-				<Clock />
+		<Routes>
+			{/* Public Routes */}
+			<Route path="/" element={<PublicRoutes />}>
+				<Route index element={<Home />} />
+				<Route path="login" element={<Login />} />
+				<Route path="register" element={<Register />} />
+			</Route>
 
-				<ClockB />
+			{/* Private / Protected Routes */}
+			<Route element={<PrivateRoutes />}>
+				<Route path="/dashboard" element={<Dashboard />} />
+				<Route path="/admin" element={<Admin />} />
+				<Route path="/super-admin" element={<SuperAdmin />} />
 
-				<br />
-				<Memo />
+				{/* <Route path="/teams" element={<Outlet />}>
+					<Route index element={<Teams />} />
+					<Route path=":teamId" element={<Team />} />
+					<Route path=":teamId/edit" element={<EditTeam />} />
+					<Route path="new" element={<NewTeam />} />
+				</Route> */}
+			</Route>
 
-				<br />
-				<ControlledFunc />
-
-				{/* <Parent /> */}
-
-				{/* <MultiFieldForm /> */}
-
-				{/* <Form />
-
-				<br />
-
-				<Toggle />
-
-				<br />
-
-				<Counter />
-
-				<br />
-
-				<Greeting />
-
-				<br />
-				<Input />
-
-				<br />
-
-				<MovieList /> */}
-			</Layout>
-		</div>
+			{/* Catch All / 404 Page */}
+			<Route path="*" element={<NotFound />} />
+		</Routes>
 	);
 }
 
 export default App;
-
-// const prototype = {
-// 	forEach: function () {
-// 		console.log("my custom forEach method");
-// 	},
-// };
-
-// const array = {
-// 	prototype: prototype,
-// };
-
-// array.prototype.forEach();
-
-// const element = {
-// 	type: "div",
-// 	children: {
-// 		type: "div",
-// 		children: {
-// 			type: "p",
-// 			children: "my paragraph content",
-// 		},
-// 	},
-// };

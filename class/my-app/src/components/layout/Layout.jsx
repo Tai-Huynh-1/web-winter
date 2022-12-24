@@ -1,13 +1,6 @@
 import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
-	console.log(
-		<div>
-			<h1>DOM NODE</h1>
-			<h2>My H2</h2>
-		</div>
-	);
-
 	return (
 		<div>
 			{/* Navbar */}
