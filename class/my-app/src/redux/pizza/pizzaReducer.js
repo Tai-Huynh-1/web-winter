@@ -8,7 +8,6 @@ const initalState = {
 };
 
 const pizzaReducer = (state = initalState, action) => {
-	console.log("pizza reducer running");
 	switch (action.type) {
 		case OPENCLOSE:
 			return { ...state, isOpen: !state.isOpen };

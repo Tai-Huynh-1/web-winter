@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../hook/useAuth";
 
-const Navbar = () => {
+const PrivateNavbar = () => {
+	const { logout } = useAuth();
+
 	return (
 		<nav className="top-nav">
 			<div>
@@ -25,14 +28,11 @@ const Navbar = () => {
 
 			<ul>
 				<li>
-					<Link to="/login">Log In</Link>
-				</li>
-				<li>
-					<Link to="/register">Register</Link>
+					<button onClick={logout}>Log Out</button>
 				</li>
 			</ul>
 		</nav>
 	);
 };
 
-export default Navbar;
+export default PrivateNavbar;
