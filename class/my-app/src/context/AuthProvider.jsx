@@ -29,20 +29,23 @@ const AuthProvider = ({ children }) => {
 	const navigate = useNavigate();
 	const fakeLogin = useFakeLogin();
 
-	const login = useCallback(async (from) => {
-		try {
-			const { data } = await fakeLogin();
-			setUser(data);
-			navigate(from, { replace: true });
-		} catch (err) {
-			console.log(err);
-		}
-	}, []);
+	const login = useCallback(
+		async (from) => {
+			try {
+				const { data } = await fakeLogin();
+				setUser(data);
+				navigate(from, { replace: true });
+			} catch (err) {
+				console.log(err);
+			}
+		},
+		[fakeLogin, navigate]
+	);
 
 	const logout = useCallback(() => {
 		setUser(null);
 		navigate("/");
-	}, []);
+	}, [navigate]);
 
 	console.log("user", user);
 

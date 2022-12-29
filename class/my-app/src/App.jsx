@@ -12,6 +12,7 @@ import SuperAdmin from "./pages/private/SuperAdmin";
 import NotFound from "./pages/NotFound";
 import PublicRoutes from "./components/layout/PublicRoutes";
 import PrivateRoutes from "./components/layout/PrivateRoutes";
+import PersistWrapper from "./components/layout/PersistWrapper";
 
 function App() {
 	return (
@@ -23,19 +24,21 @@ function App() {
 				<Route path="register" element={<Register />} />
 			</Route>
 
-			{/* Private / Protected Routes */}
-			<Route element={<PrivateRoutes />}>
-				<Route path="/dashboard" element={<Dashboard />} />
-				<Route path="/admin" element={<Admin />} />
-				<Route path="/super-admin" element={<SuperAdmin />} />
+			<PersistWrapper>
+				{/* Private / Protected Routes */}
+				<Route element={<PrivateRoutes />}>
+					<Route path="/dashboard" element={<Dashboard />} />
+					<Route path="/admin" element={<Admin />} />
+					<Route path="/super-admin" element={<SuperAdmin />} />
 
-				{/* <Route path="/teams" element={<Outlet />}>
+					{/* <Route path="/teams" element={<Outlet />}>
 					<Route index element={<Teams />} />
 					<Route path=":teamId" element={<Team />} />
 					<Route path=":teamId/edit" element={<EditTeam />} />
 					<Route path="new" element={<NewTeam />} />
 				</Route> */}
-			</Route>
+				</Route>
+			</PersistWrapper>
 
 			{/* Catch All / 404 Page */}
 			<Route path="*" element={<NotFound />} />
