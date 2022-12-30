@@ -7,12 +7,17 @@ const PersistWrapper = () => {
 	const refresh = useRefreshToken();
 	const [isLoading, setIsLoading] = useState(true);
 	const { user } = useAuth();
+	console.log("user in persist wrapper", user);
 
 	useEffect(() => {
 		let isMounted = true;
+		const refreshToken = localStorage.getItem("refreshToken");
+		console.log("accessToken", user?.accessToken);
+		console.log("refreshToken", refreshToken);
 
 		const refreshOrRefetchUserInfo = async () => {
 			try {
+				// if resfresh successfully, we have a user object (meaning they are logged in with valid access token)
 				await refresh();
 			} catch (err) {
 				console.error(err);
@@ -21,14 +26,14 @@ const PersistWrapper = () => {
 			}
 		};
 
-		!user?.accessToken ? refreshOrRefetchUserInfo() : setIsLoading(false);
+		!user?.accessToken && refreshToken ? refreshOrRefetchUserInfo() : setIsLoading(false);
 
 		return () => {
 			isMounted = false;
 		};
 	}, []);
 
-	return <>{isLoading ? <p>Loading...</p> : <Outlet />}</>;
+	return isLoading ? <p>Loading...</p> : <Outlet />;
 };
 
 export default PersistWrapper;

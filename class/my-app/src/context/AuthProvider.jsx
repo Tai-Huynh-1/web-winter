@@ -32,8 +32,11 @@ const AuthProvider = ({ children }) => {
 	const login = useCallback(
 		async (from) => {
 			try {
-				const { data } = await fakeLogin();
-				setUser(data);
+				const user = await fakeLogin();
+				setUser(user);
+				// refreshToken is stored in localStorage here, but should be set in an secure/http only cookie
+				localStorage.setItem("refreshToken", `refresh: ${Math.floor(Math.random() * 100)}`);
+				console.log("set user on first log in");
 				navigate(from, { replace: true });
 			} catch (err) {
 				console.log(err);
@@ -43,6 +46,7 @@ const AuthProvider = ({ children }) => {
 	);
 
 	const logout = useCallback(() => {
+		localStorage.removeItem("refreshToken");
 		setUser(null);
 		navigate("/");
 	}, [navigate]);

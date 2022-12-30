@@ -6,6 +6,7 @@ const useRefreshToken = () => {
 
 	const refresh = useCallback(async () => {
 		const response = await new Promise((resolve, reject) => {
+			console.log("refreshing");
 			// setTimeout creates a delay to simulate network latency from a real server
 			setTimeout(() => {
 				const user = {
@@ -15,7 +16,7 @@ const useRefreshToken = () => {
 				};
 
 				resolve(user);
-			}, 300);
+			}, 2000);
 		});
 
 		setUser((prevUser) => ({ ...prevUser, ...response }));
