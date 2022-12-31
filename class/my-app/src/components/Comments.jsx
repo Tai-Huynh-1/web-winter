@@ -32,13 +32,16 @@ const Comments = () => {
 			const url = "https://jsonplaceholder.typicode.com/comments";
 			try {
 				const { data } = await axios.get(url);
+				console.log("setting data");
 				isMounted && setData(data.slice(0, 10));
 			} catch (err) {
 				console.log(err);
+				setErr(err);
 			}
 		}
-
+		console.log("before");
 		fetchComments();
+		console.log("after");
 
 		return () => {
 			isMounted = false;
