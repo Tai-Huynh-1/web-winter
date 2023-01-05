@@ -15,6 +15,9 @@ import PrivateRoutes from "./components/layout/PrivateRoutes";
 import PersistWrapper from "./components/layout/PersistWrapper";
 import Unauthorized from "./pages/Unauthorized";
 import CommentsPage from "./pages/private/CommentsPage";
+import Todos from "./pages/private/Todos";
+import Todo from "./pages/private/Todo";
+import NewTodo from "./pages/private/NewTodo";
 
 function App() {
 	return (
@@ -34,6 +37,15 @@ function App() {
 					<Route path="/admin" element={<Admin />} />
 					<Route path="/super-admin" element={<SuperAdmin />} />
 					<Route path="comments" element={<CommentsPage />} />
+
+					<Route path="/todos" element={<Outlet />}>
+						{/* /todos */}
+						<Route index element={<Todos />} />
+						{/* /todos/abcdef */}
+						<Route path=":todosId" element={<Todo />} />
+						{/* /todos/new */}
+						<Route path="new" element={<NewTodo />} />
+					</Route>
 
 					{/* <Route path="/teams" element={<Outlet />}>
 						<Route index element={<Teams />} />
