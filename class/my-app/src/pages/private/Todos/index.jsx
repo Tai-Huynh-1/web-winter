@@ -1,16 +1,7 @@
 import React, { useEffect } from "react";
-import { useMemo } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PageContainer from "../../../components/layout/PageContainer";
-
-const t = {
-	id: "asdqwe",
-	title: "Grocery",
-	date: new Date(),
-	owner: "Jack",
-	description: "Buy milk",
-};
 
 const Todos = () => {
 	const [todos, setTodos] = useState([]);
