@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Button from "../../components/Button";
 import useAuth from "../../hook/useAuth";
 import useFakeLogin from "../../hook/useFakeLogin";
 
@@ -81,13 +82,13 @@ const LoginForm = () => {
 					{!validPwd && pwd.length > 0 && <p className="text-red-500">Not a valid password</p>}
 				</div>
 
-				<button type="submit" className="rounded-md border-2 border-transparent bg-indigo-500 text-white py-2 px-3 mt-6" disabled={isLoading || !validEmail || !validPwd}>
+				<Button type="submit" disabled={isLoading || !validEmail || !validPwd}>
 					Log in
-				</button>
+				</Button>
 
-				<button className="rounded-md border-2 border-indigo-500 py-2 px-3" onClick={goBack}>
+				<Button secondary onClick={goBack}>
 					Go Back
-				</button>
+				</Button>
 			</form>
 			{errMsg && <p className="text-red-500">{errMsg}</p>}
 		</>

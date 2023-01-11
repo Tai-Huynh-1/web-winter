@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
 import logo from "../../assets/logos/logo.svg";
+import Button from "../Button";
 
 const PrivateNavbar = () => {
 	const { logout } = useAuth();
@@ -31,9 +32,7 @@ const PrivateNavbar = () => {
 			</ul>
 
 			<div className="flex gap-3">
-				<button className="rounded-md bg-indigo-500 text-white py-2 px-3" onClick={logout}>
-					Log Out
-				</button>
+				<Button onClick={logout}>Log Out</Button>
 			</div>
 		</nav>
 	);
