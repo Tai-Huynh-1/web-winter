@@ -14,6 +14,11 @@ const Dashboard = () => {
 			name: "Comments",
 			href: "/comments",
 		},
+		{
+			id: 3,
+			name: "Users",
+			href: "/users",
+		},
 	];
 
 	return (

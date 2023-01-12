@@ -18,6 +18,7 @@ import CommentsPage from "./pages/private/CommentsPage";
 import Todos from "./pages/private/Todos";
 import Todo from "./pages/private/Todo";
 import NewTodo from "./pages/private/NewTodo";
+import Users from "./pages/private/Users";
 
 function App() {
 	return (
@@ -45,6 +46,10 @@ function App() {
 						<Route path=":todosId" element={<Todo />} />
 						{/* /todos/new */}
 						<Route path="new" element={<NewTodo />} />
+					</Route>
+
+					<Route path="/users" element={<Outlet />}>
+						<Route index element={<Users />} />
 					</Route>
 
 					{/* <Route path="/teams" element={<Outlet />}>
