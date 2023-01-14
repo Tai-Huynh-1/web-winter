@@ -19,6 +19,7 @@ import Todos from "./pages/private/Todos";
 import Todo from "./pages/private/Todo";
 import NewTodo from "./pages/private/NewTodo";
 import Users from "./pages/private/Users";
+import Search from "./pages/private/Search";
 
 function App() {
 	return (
@@ -50,6 +51,10 @@ function App() {
 
 					<Route path="/users" element={<Outlet />}>
 						<Route index element={<Users />} />
+					</Route>
+
+					<Route path="/search" element={<Outlet />}>
+						<Route index element={<Search />} />
 					</Route>
 
 					{/* <Route path="/teams" element={<Outlet />}>

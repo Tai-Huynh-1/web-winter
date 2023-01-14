@@ -19,6 +19,11 @@ const Dashboard = () => {
 			name: "Users",
 			href: "/users",
 		},
+		{
+			id: 4,
+			name: "Search",
+			href: "/search",
+		},
 	];
 
 	return (
