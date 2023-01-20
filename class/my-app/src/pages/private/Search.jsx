@@ -1,6 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PageContainer from "../../components/layout/PageContainer";
 import useDebounce from "../../hook/useDebounce";
 
@@ -10,7 +8,9 @@ const Search = () => {
 
 	useEffect(() => {
 		// MAKE API CALL
-		console.log(`MAKING API CALL- debounced value changed: ${debouncedValue}`);
+		if (search) {
+			console.log(`MAKING API CALL- debounced value changed: ${debouncedValue}`);
+		}
 	}, [debouncedValue]);
 
 	return (
