@@ -1,31 +1,106 @@
 import { useState } from "react";
 import PageContainer from "../components/layout/PageContainer";
-// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { Link } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import Button from "../components/Button";
+
+const phoneRegex = /^[(]{1}[0-9]{3}[)]{1}\s[0-9]{3}-[0-9]{4}$/;
+
+function formatPhoneNumber(value) {
+	if (!value) return value;
+	// clean input for any non-digit value
+	const phoneNumber = value.replace(/[^\d]/g, "");
+	const phoneNumberLength = phoneNumber.length;
+	if (phoneNumberLength < 4) return phoneNumber;
+	if (phoneNumberLength < 7) {
+		return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+	}
+
+	return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+}
+
+const schema = yup.object({
+	email: yup.string().max(50, "Maximum of 50 characters allowed.").email().required(),
+	password: yup.string().min(8, "Must be at least 8 characters long").required(),
+	phone: yup.string().matches(phoneRegex, "Phone must be in the format (XXX) XXX-XXXX").required(),
+	terms: yup.boolean().required().oneOf([true], "Please accept the Terms and Conditions."),
+});
 
 const Register = () => {
-	const [modal, setModal] = useState(false);
+	const {
+		register,
+		handleSubmit,
+		watch,
+		setValue,
+		trigger,
+		formState: { errors },
+	} = useForm({
+		resolver: yupResolver(schema),
+		defaultValues: {
+			email: "",
+			password: "",
+			phone: "",
+			terms: false,
+		},
+	});
 
-	const toggle = () => setModal(!modal);
+	const onSubmit = (data) => {
+		console.log("data", data);
+	};
+
+	// console.log("email input", watch("email"));
+
+	console.log("errors", errors);
 
 	return (
 		<PageContainer pageTitle="Register">
-			{/* <Button color="danger" onClick={toggle}>
-				Click Me
-			</Button>
-			<Modal isOpen={modal} toggle={toggle}>
-				<ModalHeader toggle={toggle}>Modal title</ModalHeader>
-				<ModalBody>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</ModalBody>
-				<ModalFooter>
-					<Button color="primary" onClick={toggle}>
-						Do Something
-					</Button>{" "}
-					<Button color="secondary" onClick={toggle}>
-						Cancel
-					</Button>
-				</ModalFooter>
-			</Modal> */}
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<div>
+					<label id="email">Email: </label>
+					<input
+						type="email"
+						id="email"
+						{...register("email")}
+						// onChange={(e) => {
+						// 	trigger("email");
+						// }}
+					/>
+					{errors?.email && <p className="text-red-500">{errors.email?.message}</p>}
+				</div>
+
+				<div>
+					<label id="password">Password: </label>
+					<input type="password" id="password" {...register("password")} />
+					{errors?.password && <p className="text-red-500">{errors.password?.message}</p>}
+				</div>
+
+				<div>
+					<label id="phone">Phone: </label>
+					<input
+						type="text"
+						id="phone"
+						{...register("phone")}
+						onChange={(e) => {
+							setValue("phone", formatPhoneNumber(e.target.value));
+							trigger("phone", { shouldFocus: true });
+						}}
+					/>
+					{errors?.phone && <p className="text-red-500">{errors.phone?.message}</p>}
+				</div>
+
+				<div>
+					<label id="terms">
+						<input type="checkbox" id="terms" {...register("terms")} />I agree to the <Link>Terms & Conditions</Link>.
+					</label>
+					{errors?.terms && <p className="text-red-500">{errors.terms?.message}</p>}
+				</div>
+
+				<Button type="submit" disabled={watch("terms") ? false : true}>
+					Submit
+				</Button>
+			</form>
 		</PageContainer>
 	);
 };
